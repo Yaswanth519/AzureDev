@@ -1,5 +1,5 @@
 {
-	"name": "DS_CP_CSV",
+	"name": "DS_CSV_MULTIPLE",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AZ_CSV_LS",
@@ -10,22 +10,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "adlsazsrc"
+				"folderPath": "csv",
+				"fileSystem": "adlsazsink"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "SIC_Code",
-				"type": "String"
-			},
-			{
-				"name": "Description",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
