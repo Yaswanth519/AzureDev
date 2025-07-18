@@ -59,6 +59,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"pipelineschema": {
+				"type": "string"
+			},
+			"pipelinetable": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
