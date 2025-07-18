@@ -1,0 +1,23 @@
+{
+	"name": "DS_ON_PREM_CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SRC_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "sql",
+				"fileSystem": "adfsink"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

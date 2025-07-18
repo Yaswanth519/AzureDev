@@ -6,15 +6,15 @@
 		"type": "SqlServer",
 		"typeProperties": {
 			"server": "YASWANTH\\SQLEXPRESS",
-			"database": "YASWANTH\\91770",
+			"database": "AdventureWorks2022",
 			"encrypt": "mandatory",
-			"trustServerCertificate": false,
-			"authenticationType": "Windows",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
 			"userName": "sa",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmY2NlNTkxYy0yOGIwLTRlNDYtODhmMS1kMDU0M2U0ZDhjNzQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5NTk5ZDAxOS1lOTczLTQxNjAtODUyNC1hOGVlNjM0ZGE2ZTQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "integrationRuntime1",
+			"referenceName": "integrationRuntime2",
 			"type": "IntegrationRuntimeReference"
 		}
 	}

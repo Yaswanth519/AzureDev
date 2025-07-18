@@ -1,7 +1,0 @@
-{
-	"name": "PL_COPY_ONPREM_SQL",
-	"properties": {
-		"description": "Pipeline to copy data from on premises to cloud.",
-		"annotations": []
-	}
-}
