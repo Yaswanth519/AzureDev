@@ -1,8 +1,8 @@
 {
-	"name": "DS_CP_CSV",
+	"name": "DS_REST_CSV1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AZ_CSV_LS",
+			"referenceName": "LS_REST_CSV1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -20,11 +20,19 @@
 		},
 		"schema": [
 			{
-				"name": "SIC_Code",
+				"name": "DepartmentID",
 				"type": "String"
 			},
 			{
-				"name": "Description",
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "GroupName",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
 				"type": "String"
 			}
 		]
