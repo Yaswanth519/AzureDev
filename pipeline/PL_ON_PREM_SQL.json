@@ -46,8 +46,14 @@
 						"referenceName": "DS_ON_PREM_SQL",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema": "HumanResources",
-							"tablename": "Department"
+							"schema": {
+								"value": "@pipeline().parameters.pipelineschema",
+								"type": "Expression"
+							},
+							"tablename": {
+								"value": "@pipeline().parameters.pipelinetable",
+								"type": "Expression"
+							}
 						}
 					}
 				],
