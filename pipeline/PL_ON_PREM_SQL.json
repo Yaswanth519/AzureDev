@@ -44,7 +44,11 @@
 				"inputs": [
 					{
 						"referenceName": "DS_ON_PREM_SQL",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "HumanResources",
+							"tablename": "Department"
+						}
 					}
 				],
 				"outputs": [
