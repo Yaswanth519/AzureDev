@@ -14,6 +14,9 @@
 		"LS_SRC_ADLS_accountKey": {
 			"value": ""
 		},
+		"LS_REST_CSV1_accountKey": {
+			"value": ""
+		},
 		"AZ_CSV_LS_properties_typeProperties_url": {
 			"value": "https://azdevadls1.dfs.core.windows.net/"
 		},
@@ -27,6 +30,12 @@
 			"value": "sa"
 		},
 		"LS_SRC_ADLS_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_REST1_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_REST_CSV1_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"containerUri": {
