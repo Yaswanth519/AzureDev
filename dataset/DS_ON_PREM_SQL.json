@@ -37,8 +37,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "HumanResources",
-			"table": "Department"
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
 		}
 	}
 }
