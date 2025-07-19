@@ -1,9 +1,9 @@
 {
-	"name": "PL_COPY_CSV",
+	"name": "PL_DEL_COP",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "CP_CSV1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,8 +20,6 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "csv",
-							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -51,18 +49,59 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_CP_CSV",
+						"referenceName": "DS_COPY_CSV1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_CSV_MULTIPLE",
+						"referenceName": "DS_COPY_CSV1a",
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "DL_CSV",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "CP_CSV1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_COPY_CSV1",
+						"type": "DatasetReference"
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "LS_COPY_CSV1",
+							"type": "LinkedServiceReference"
+						},
+						"path": "adfsource"
+					},
+					"enableLogging": true,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2025-07-19T07:30:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
