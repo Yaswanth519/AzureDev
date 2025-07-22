@@ -1,0 +1,133 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFDEVAZ1"
+		},
+		"AZ_CSV_LS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AZ_CSV_LS'"
+		},
+		"LS_COPY_CSV1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_COPY_CSV1'"
+		},
+		"LS_ON_PREM_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ON_PREM_SQL'"
+		},
+		"LS_REST_CSV1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_REST_CSV1'"
+		},
+		"LS_SRC_ADLS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SRC_ADLS'"
+		},
+		"AZ_CSV_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azdevadls1.dfs.core.windows.net/"
+		},
+		"LS_COPY_CSV1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_REST1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_REST_CSV1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_SRC_ADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFDEVAZ1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AZ_CSV_LS_accountKey": {
+						"value": "[parameters('AZ_CSV_LS_accountKey')]"
+					},
+					"LS_COPY_CSV1_accountKey": {
+						"value": "[parameters('LS_COPY_CSV1_accountKey')]"
+					},
+					"LS_REST_CSV1_accountKey": {
+						"value": "[parameters('LS_REST_CSV1_accountKey')]"
+					},
+					"LS_SRC_ADLS_accountKey": {
+						"value": "[parameters('LS_SRC_ADLS_accountKey')]"
+					},
+					"LS_ON_PREM_SQL_password": {
+						"value": "[parameters('LS_ON_PREM_SQL_password')]"
+					},
+					"AZ_CSV_LS_properties_typeProperties_url": {
+						"value": "[parameters('AZ_CSV_LS_properties_typeProperties_url')]"
+					},
+					"LS_COPY_CSV1_properties_typeProperties_url": {
+						"value": "[parameters('LS_COPY_CSV1_properties_typeProperties_url')]"
+					},
+					"LS_REST1_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST1_properties_typeProperties_url')]"
+					},
+					"LS_REST_CSV1_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_CSV1_properties_typeProperties_url')]"
+					},
+					"LS_SRC_ADLS_properties_typeProperties_url": {
+						"value": "[parameters('LS_SRC_ADLS_properties_typeProperties_url')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_server')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_database')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
