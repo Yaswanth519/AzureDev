@@ -2,7 +2,7 @@
 	"name": "DS_CP_CSV",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AZ_CSV_LS",
+			"referenceName": "LS_CP_ONPREM_CSV",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "output",
+				"folderPath": "csv",
 				"fileSystem": "adfsink"
 			},
 			"columnDelimiter": ",",

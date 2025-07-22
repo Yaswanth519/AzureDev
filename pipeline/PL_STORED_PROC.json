@@ -14,12 +14,49 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertCustomer]",
+					"storedProcedureParameters": {
+						"CustomerID": {
+							"value": {
+								"value": "@pipeline().parameters.CustomerID",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"FirstName": {
+							"value": {
+								"value": "@pipeline().parameters.FirstName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"LastName": {
+							"value": {
+								"value": "@pipeline().parameters.LastName",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
 				"linkedServiceName": {
 					"referenceName": "LS_ON_PREM_SQL",
 					"type": "LinkedServiceReference"
 				}
 			}
 		],
+		"parameters": {
+			"CustomerID": {
+				"type": "string"
+			},
+			"FirstName": {
+				"type": "string"
+			},
+			"LastName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

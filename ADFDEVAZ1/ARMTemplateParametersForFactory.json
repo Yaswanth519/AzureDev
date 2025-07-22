@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFDEVAZ1"
+		},
+		"AZ_CSV_LS_accountKey": {
+			"value": ""
+		},
+		"LS_COPY_CSV1_accountKey": {
+			"value": ""
+		},
+		"LS_CP_ONPREM_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_ON_PREM_SQL_password": {
+			"value": ""
+		},
+		"LS_REST_CSV1_accountKey": {
+			"value": ""
+		},
+		"LS_SRC_ADLS_accountKey": {
+			"value": ""
+		},
+		"AZ_CSV_LS_properties_typeProperties_url": {
+			"value": "https://azdevadls1.dfs.core.windows.net/"
+		},
+		"LS_COPY_CSV1_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_server": {
+			"value": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_ON_PREM_SQL_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_REST1_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_REST_CSV1_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_SRC_ADLS_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		}
+	}
+}
