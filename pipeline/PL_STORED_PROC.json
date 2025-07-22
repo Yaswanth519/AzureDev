@@ -14,6 +14,23 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertCustomer]",
+					"storedProcedureParameters": {
+						"CustomerID": {
+							"value": "2",
+							"type": "Int32"
+						},
+						"FirstName": {
+							"value": "Hemanth",
+							"type": "String"
+						},
+						"LastName": {
+							"value": "Reddy",
+							"type": "String"
+						}
+					}
+				},
 				"linkedServiceName": {
 					"referenceName": "LS_ON_PREM_SQL",
 					"type": "LinkedServiceReference"
