@@ -16,22 +16,87 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_COPY_CSV1",
-						"type": "DatasetReference"
+						"referenceName": "DS_ON_PREM_SQL",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "ctl",
+							"tablename": "config"
+						}
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "CP_BASED_ON_QUERY",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "LP_SQL_ON_PREM",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": {
+							"value": "@activity('LP_SQL_ON_PREM').output.value[0].query",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ON_PREM_SQL",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "HumanResources",
+							"tablename": "Employee"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_CP_CSV",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
