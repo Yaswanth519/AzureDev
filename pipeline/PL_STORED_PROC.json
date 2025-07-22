@@ -18,15 +18,24 @@
 					"storedProcedureName": "[dbo].[InsertCustomer]",
 					"storedProcedureParameters": {
 						"CustomerID": {
-							"value": "2",
+							"value": {
+								"value": "@pipeline().parameters.CustomerID",
+								"type": "Expression"
+							},
 							"type": "Int32"
 						},
 						"FirstName": {
-							"value": "Hemanth",
+							"value": {
+								"value": "@pipeline().parameters.FirstName",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"LastName": {
-							"value": "Reddy",
+							"value": {
+								"value": "@pipeline().parameters.LastName",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
@@ -37,6 +46,17 @@
 				}
 			}
 		],
+		"parameters": {
+			"CustomerID": {
+				"type": "string"
+			},
+			"FirstName": {
+				"type": "string"
+			},
+			"LastName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
