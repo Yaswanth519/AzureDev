@@ -11,6 +11,9 @@
 		"LS_COPY_CSV1_accountKey": {
 			"value": ""
 		},
+		"LS_CP_ONPREM_CSV_accountKey": {
+			"value": ""
+		},
 		"LS_ON_PREM_SQL_password": {
 			"value": ""
 		},
@@ -24,6 +27,9 @@
 			"value": "https://azdevadls1.dfs.core.windows.net/"
 		},
 		"LS_COPY_CSV1_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_ON_PREM_SQL_properties_typeProperties_server": {

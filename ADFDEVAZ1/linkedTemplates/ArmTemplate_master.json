@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_COPY_CSV1'"
 		},
+		"LS_CP_ONPREM_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_CP_ONPREM_CSV'"
+		},
 		"LS_ON_PREM_SQL_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_ON_PREM_SQL'"
@@ -32,6 +36,10 @@
 			"defaultValue": "https://azdevadls1.dfs.core.windows.net/"
 		},
 		"LS_COPY_CSV1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
@@ -92,6 +100,9 @@
 					"LS_COPY_CSV1_accountKey": {
 						"value": "[parameters('LS_COPY_CSV1_accountKey')]"
 					},
+					"LS_CP_ONPREM_CSV_accountKey": {
+						"value": "[parameters('LS_CP_ONPREM_CSV_accountKey')]"
+					},
 					"LS_REST_CSV1_accountKey": {
 						"value": "[parameters('LS_REST_CSV1_accountKey')]"
 					},
@@ -106,6 +117,9 @@
 					},
 					"LS_COPY_CSV1_properties_typeProperties_url": {
 						"value": "[parameters('LS_COPY_CSV1_properties_typeProperties_url')]"
+					},
+					"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_CP_ONPREM_CSV_properties_typeProperties_url')]"
 					},
 					"LS_REST1_properties_typeProperties_url": {
 						"value": "[parameters('LS_REST1_properties_typeProperties_url')]"
