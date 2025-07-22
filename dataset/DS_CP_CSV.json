@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "csv",
+				"folderPath": "lookup",
 				"fileSystem": "adfsink"
 			},
 			"columnDelimiter": ",",
