@@ -16,23 +16,24 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_GET_METADATA",
+						"referenceName": "DS_ONPREM_SQL_GET_MD",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"childItems",
-						"itemName"
-					],
-					"storeSettings": {
-						"type": "AzureBlobFSReadSettings",
-						"enablePartitionDiscovery": false
-					},
-					"formatSettings": {
-						"type": "DelimitedTextReadSettings"
-					}
+						"structure",
+						"columnCount"
+					]
 				}
 			}
 		],
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
