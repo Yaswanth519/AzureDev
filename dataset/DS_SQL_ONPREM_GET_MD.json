@@ -1,0 +1,19 @@
+{
+	"name": "DS_SQL_ONPREM_GET_MD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ONPREM_GETMD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset.schema",
+				"type": "Expression"
+			},
+			"table": "@data"
+		}
+	}
+}
