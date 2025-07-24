@@ -15,14 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "DS_ONPREM_SQL_GET_MD",
-						"type": "DatasetReference"
-					},
-					"fieldList": [
-						"structure",
-						"columnCount"
-					]
+					"fieldList": []
 				}
 			}
 		],
