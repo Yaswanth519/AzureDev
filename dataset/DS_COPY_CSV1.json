@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "industry_sic.csv",
+				"fileName": "sales_report.csv",
 				"folderPath": "csv",
 				"fileSystem": "adfsource"
 			},
