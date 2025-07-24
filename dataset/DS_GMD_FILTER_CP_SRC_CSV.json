@@ -1,5 +1,5 @@
 {
-	"name": "DS_GMD_FILTER_CP_CSV",
+	"name": "DS_GMD_FILTER_CP_SRC_CSV",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AZ_CSV_LS",
@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "csv_csv",
-				"fileSystem": "adfsink"
+				"fileSystem": "adfsource"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
