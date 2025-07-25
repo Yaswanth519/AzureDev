@@ -27,7 +27,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "DS_COPY_CSV1",
+						"referenceName": "DS_LP_CSV1",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
