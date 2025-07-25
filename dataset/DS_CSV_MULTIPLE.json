@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "csv",
-				"fileSystem": "adlsazsink"
+				"fileSystem": "adfsource"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

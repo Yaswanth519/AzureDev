@@ -17,6 +17,9 @@
 		"LS_ON_PREM_SQL_password": {
 			"value": ""
 		},
+		"LS_ON_PREM_SQL1_password": {
+			"value": ""
+		},
 		"LS_REST_CSV1_accountKey": {
 			"value": ""
 		},
@@ -39,6 +42,15 @@
 			"value": "AdventureWorks2022"
 		},
 		"LS_ON_PREM_SQL_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_ON_PREM_SQL1_properties_typeProperties_server": {
+			"value": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ON_PREM_SQL1_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_ON_PREM_SQL1_properties_typeProperties_userName": {
 			"value": "sa"
 		},
 		"LS_REST1_properties_typeProperties_url": {

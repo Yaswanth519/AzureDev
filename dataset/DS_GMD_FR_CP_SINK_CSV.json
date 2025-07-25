@@ -1,8 +1,8 @@
 {
-	"name": "DS_CP_CSV",
+	"name": "DS_GMD_FR_CP_SINK_CSV",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_CP_ONPREM_CSV",
+			"referenceName": "AZ_CSV_LS",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "csv_until",
+				"folderPath": "csv_csv",
 				"fileSystem": "adfsink"
 			},
 			"columnDelimiter": ",",
@@ -18,15 +18,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "SIC_Code",
-				"type": "String"
-			},
-			{
-				"name": "Description",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
