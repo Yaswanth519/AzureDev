@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "csv",
+				"folderPath": "foreach_csv",
 				"fileSystem": "adfsink"
 			},
 			"columnDelimiter": ",",
