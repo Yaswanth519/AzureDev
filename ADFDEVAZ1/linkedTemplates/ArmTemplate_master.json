@@ -15,9 +15,21 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_COPY_CSV1'"
 		},
+		"LS_COPY_CSV2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_COPY_CSV2'"
+		},
 		"LS_CP_ONPREM_CSV_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CP_ONPREM_CSV'"
+		},
+		"LS_CP_SRC_1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_CP_SRC_1'"
+		},
+		"LS_ONPREM_GETMD_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_GETMD'"
 		},
 		"LS_ON_PREM_SQL_password": {
 			"type": "secureString",
@@ -35,17 +47,45 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SRC_ADLS'"
 		},
+		"LS_SRC_CSV1_GMD_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SRC_CSV1_GMD'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
 		"AZ_CSV_LS_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://azdevadls1.dfs.core.windows.net/"
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_COPY_CSV1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_COPY_CSV2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_CP_SRC_1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
 		},
 		"LS_ON_PREM_SQL_properties_typeProperties_server": {
 			"type": "string",
@@ -83,6 +123,14 @@
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
+		"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -116,8 +164,14 @@
 					"LS_COPY_CSV1_accountKey": {
 						"value": "[parameters('LS_COPY_CSV1_accountKey')]"
 					},
+					"LS_COPY_CSV2_accountKey": {
+						"value": "[parameters('LS_COPY_CSV2_accountKey')]"
+					},
 					"LS_CP_ONPREM_CSV_accountKey": {
 						"value": "[parameters('LS_CP_ONPREM_CSV_accountKey')]"
+					},
+					"LS_CP_SRC_1_accountKey": {
+						"value": "[parameters('LS_CP_SRC_1_accountKey')]"
 					},
 					"LS_REST_CSV1_accountKey": {
 						"value": "[parameters('LS_REST_CSV1_accountKey')]"
@@ -125,11 +179,11 @@
 					"LS_SRC_ADLS_accountKey": {
 						"value": "[parameters('LS_SRC_ADLS_accountKey')]"
 					},
-					"LS_ON_PREM_SQL_password": {
-						"value": "[parameters('LS_ON_PREM_SQL_password')]"
+					"LS_SRC_CSV1_GMD_accountKey": {
+						"value": "[parameters('LS_SRC_CSV1_GMD_accountKey')]"
 					},
-					"LS_ON_PREM_SQL1_password": {
-						"value": "[parameters('LS_ON_PREM_SQL1_password')]"
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
 					"AZ_CSV_LS_properties_typeProperties_url": {
 						"value": "[parameters('AZ_CSV_LS_properties_typeProperties_url')]"
@@ -137,8 +191,14 @@
 					"LS_COPY_CSV1_properties_typeProperties_url": {
 						"value": "[parameters('LS_COPY_CSV1_properties_typeProperties_url')]"
 					},
+					"LS_COPY_CSV2_properties_typeProperties_url": {
+						"value": "[parameters('LS_COPY_CSV2_properties_typeProperties_url')]"
+					},
 					"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
 						"value": "[parameters('LS_CP_ONPREM_CSV_properties_typeProperties_url')]"
+					},
+					"LS_CP_SRC_1_properties_typeProperties_url": {
+						"value": "[parameters('LS_CP_SRC_1_properties_typeProperties_url')]"
 					},
 					"LS_REST1_properties_typeProperties_url": {
 						"value": "[parameters('LS_REST1_properties_typeProperties_url')]"
@@ -149,23 +209,11 @@
 					"LS_SRC_ADLS_properties_typeProperties_url": {
 						"value": "[parameters('LS_SRC_ADLS_properties_typeProperties_url')]"
 					},
-					"LS_ON_PREM_SQL_properties_typeProperties_server": {
-						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_server')]"
+					"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
+						"value": "[parameters('LS_SRC_CSV1_GMD_properties_typeProperties_url')]"
 					},
-					"LS_ON_PREM_SQL_properties_typeProperties_database": {
-						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_database')]"
-					},
-					"LS_ON_PREM_SQL_properties_typeProperties_userName": {
-						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_userName')]"
-					},
-					"LS_ON_PREM_SQL1_properties_typeProperties_server": {
-						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_server')]"
-					},
-					"LS_ON_PREM_SQL1_properties_typeProperties_database": {
-						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_database')]"
-					},
-					"LS_ON_PREM_SQL1_properties_typeProperties_userName": {
-						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_userName')]"
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -184,6 +232,42 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_ONPREM_GETMD_password": {
+						"value": "[parameters('LS_ONPREM_GETMD_password')]"
+					},
+					"LS_ON_PREM_SQL_password": {
+						"value": "[parameters('LS_ON_PREM_SQL_password')]"
+					},
+					"LS_ON_PREM_SQL1_password": {
+						"value": "[parameters('LS_ON_PREM_SQL1_password')]"
+					},
+					"LS_ONPREM_GETMD_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPREM_GETMD_properties_typeProperties_server')]"
+					},
+					"LS_ONPREM_GETMD_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPREM_GETMD_properties_typeProperties_database')]"
+					},
+					"LS_ONPREM_GETMD_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPREM_GETMD_properties_typeProperties_userName')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_server')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_database')]"
+					},
+					"LS_ON_PREM_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ON_PREM_SQL_properties_typeProperties_userName')]"
+					},
+					"LS_ON_PREM_SQL1_properties_typeProperties_server": {
+						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_server')]"
+					},
+					"LS_ON_PREM_SQL1_properties_typeProperties_database": {
+						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_database')]"
+					},
+					"LS_ON_PREM_SQL1_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_userName')]"
 					}
 				}
 			},

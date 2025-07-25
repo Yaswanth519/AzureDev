@@ -11,7 +11,16 @@
 		"LS_COPY_CSV1_accountKey": {
 			"value": ""
 		},
+		"LS_COPY_CSV2_accountKey": {
+			"value": ""
+		},
 		"LS_CP_ONPREM_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_CP_SRC_1_accountKey": {
+			"value": ""
+		},
+		"LS_ONPREM_GETMD_password": {
 			"value": ""
 		},
 		"LS_ON_PREM_SQL_password": {
@@ -26,14 +35,35 @@
 		"LS_SRC_ADLS_accountKey": {
 			"value": ""
 		},
+		"LS_SRC_CSV1_GMD_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"AZ_CSV_LS_properties_typeProperties_url": {
-			"value": "https://azdevadls1.dfs.core.windows.net/"
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_COPY_CSV1_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
+		"LS_COPY_CSV2_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
 		"LS_CP_ONPREM_CSV_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_CP_SRC_1_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_server": {
+			"value": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_ONPREM_GETMD_properties_typeProperties_userName": {
+			"value": "sa"
 		},
 		"LS_ON_PREM_SQL_properties_typeProperties_server": {
 			"value": "YASWANTH\\SQLEXPRESS"
@@ -60,6 +90,12 @@
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_SRC_ADLS_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"containerUri": {
