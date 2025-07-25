@@ -1,5 +1,5 @@
 {
-	"name": "DS_ON_PREM_SQL_1",
+	"name": "DS_ON_PREM_SQL_LOOKUP_FOREACH1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ON_PREM_SQL_foreach",
