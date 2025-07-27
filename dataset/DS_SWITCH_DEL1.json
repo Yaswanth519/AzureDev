@@ -1,0 +1,19 @@
+{
+	"name": "DS_SWITCH_DEL1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AZ_CSV_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "industry_sic.csv",
+				"folderPath": "csv",
+				"fileSystem": "adfsink"
+			}
+		}
+	}
+}
