@@ -1,0 +1,84 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "staticResults": {
+            "Send_email_(V2)0": {
+                "status": "Succeeded",
+                "hasDelegate": false
+            }
+        },
+        "triggers": {
+            "When_a_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http",
+                "inputs": {
+                    "method": "POST",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "Pipeline": {
+                                "type": "string"
+                            },
+                            "ErrorMessage": {
+                                "type": "string"
+                            },
+                            "DataFactoryName": {
+                                "type": "string"
+                            },
+                            "RunId": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "actions": {
+            "Send_email_(V2)": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['gmail']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "To": "reddysumanth1709@gmail.com",
+                        "Importance": "Normal",
+                        "Subject": "ADF_Pipeline_Failed",
+                        "Body": "<p class=\"editor-paragraph\">Pipeline Name :@{triggerBody()?['Pipeline']}</p><p class=\"editor-paragraph\">Error Message :@{triggerBody()?['ErrorMessage']}</p><p class=\"editor-paragraph\">DataFactory Name :@{triggerBody()?['DataFactoryName']}</p><p class=\"editor-paragraph\">Run ID :@{triggerBody()?['RunId']}</p>"
+                    },
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {},
+                "runtimeConfiguration": {
+                    "staticResult": {
+                        "staticResultOptions": "Disabled",
+                        "name": "Send_email_(V2)0"
+                    }
+                }
+            }
+        },
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "type": "Object",
+                "defaultValue": {}
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "type": "Object",
+            "value": {
+                "gmail": {
+                    "id": "/subscriptions/a8458b4d-de9b-4955-b398-63c5fa25b6f4/providers/Microsoft.Web/locations/northcentralus/managedApis/gmail",
+                    "connectionId": "/subscriptions/a8458b4d-de9b-4955-b398-63c5fa25b6f4/resourceGroups/Azure_Dev_Project_1/providers/Microsoft.Web/connections/gmail",
+                    "connectionName": "gmail"
+                }
+            }
+        }
+    }
+}
