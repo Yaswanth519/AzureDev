@@ -8,6 +8,9 @@
 		"AZ_CSV_LS_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"LS_COPY_CSV1_accountKey": {
 			"value": ""
 		},
@@ -29,6 +32,9 @@
 		"LS_ON_PREM_SQL1_password": {
 			"value": ""
 		},
+		"LS_ON_PREM_SQL_foreach_password": {
+			"value": ""
+		},
 		"LS_REST_CSV1_accountKey": {
 			"value": ""
 		},
@@ -38,10 +44,10 @@
 		"LS_SRC_CSV1_GMD_accountKey": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
-		},
 		"AZ_CSV_LS_properties_typeProperties_url": {
+			"value": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_COPY_CSV1_properties_typeProperties_url": {
@@ -83,6 +89,15 @@
 		"LS_ON_PREM_SQL1_properties_typeProperties_userName": {
 			"value": "sa"
 		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_server": {
+			"value": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_userName": {
+			"value": "sa"
+		},
 		"LS_REST1_properties_typeProperties_url": {
 			"value": "https://retoolapi.dev/5yDVOt/data"
 		},
@@ -93,9 +108,6 @@
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
-			"value": "https://azadlsdev2.dfs.core.windows.net/"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"containerUri": {

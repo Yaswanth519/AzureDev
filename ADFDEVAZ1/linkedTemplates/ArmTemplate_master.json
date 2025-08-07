@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AZ_CSV_LS'"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
 		"LS_COPY_CSV1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_COPY_CSV1'"
@@ -39,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_ON_PREM_SQL1'"
 		},
+		"LS_ON_PREM_SQL_foreach_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ON_PREM_SQL_foreach'"
+		},
 		"LS_REST_CSV1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_REST_CSV1'"
@@ -51,11 +59,11 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SRC_CSV1_GMD'"
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
-		},
 		"AZ_CSV_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
@@ -111,6 +119,18 @@
 			"type": "string",
 			"defaultValue": "sa"
 		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "YASWANTH\\SQLEXPRESS"
+		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_ON_PREM_SQL_foreach_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
 		"LS_REST1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
@@ -124,10 +144,6 @@
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
 		"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azadlsdev2.dfs.core.windows.net/"
 		},
@@ -161,6 +177,9 @@
 					"AZ_CSV_LS_accountKey": {
 						"value": "[parameters('AZ_CSV_LS_accountKey')]"
 					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
 					"LS_COPY_CSV1_accountKey": {
 						"value": "[parameters('LS_COPY_CSV1_accountKey')]"
 					},
@@ -182,11 +201,11 @@
 					"LS_SRC_CSV1_GMD_accountKey": {
 						"value": "[parameters('LS_SRC_CSV1_GMD_accountKey')]"
 					},
-					"AzureDataLakeStorage1_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
-					},
 					"AZ_CSV_LS_properties_typeProperties_url": {
 						"value": "[parameters('AZ_CSV_LS_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
 					"LS_COPY_CSV1_properties_typeProperties_url": {
 						"value": "[parameters('LS_COPY_CSV1_properties_typeProperties_url')]"
@@ -211,9 +230,6 @@
 					},
 					"LS_SRC_CSV1_GMD_properties_typeProperties_url": {
 						"value": "[parameters('LS_SRC_CSV1_GMD_properties_typeProperties_url')]"
-					},
-					"AzureDataLakeStorage1_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -242,6 +258,9 @@
 					"LS_ON_PREM_SQL1_password": {
 						"value": "[parameters('LS_ON_PREM_SQL1_password')]"
 					},
+					"LS_ON_PREM_SQL_foreach_password": {
+						"value": "[parameters('LS_ON_PREM_SQL_foreach_password')]"
+					},
 					"LS_ONPREM_GETMD_properties_typeProperties_server": {
 						"value": "[parameters('LS_ONPREM_GETMD_properties_typeProperties_server')]"
 					},
@@ -268,11 +287,40 @@
 					},
 					"LS_ON_PREM_SQL1_properties_typeProperties_userName": {
 						"value": "[parameters('LS_ON_PREM_SQL1_properties_typeProperties_userName')]"
+					},
+					"LS_ON_PREM_SQL_foreach_properties_typeProperties_server": {
+						"value": "[parameters('LS_ON_PREM_SQL_foreach_properties_typeProperties_server')]"
+					},
+					"LS_ON_PREM_SQL_foreach_properties_typeProperties_database": {
+						"value": "[parameters('LS_ON_PREM_SQL_foreach_properties_typeProperties_database')]"
+					},
+					"LS_ON_PREM_SQL_foreach_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ON_PREM_SQL_foreach_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ADFDEVAZ1_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ADFDEVAZ1_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADFDEVAZ1_ArmTemplate_1')]"
 			]
 		}
 	]
