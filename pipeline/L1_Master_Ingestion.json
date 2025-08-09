@@ -1,0 +1,61 @@
+{
+	"name": "L1_Master_Ingestion",
+	"properties": {
+		"activities": [
+			{
+				"name": "set_var_trigger",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Trigger_variable",
+					"value": {
+						"value": "@if(equals(pipeline().parameters.Trigger,null),pipeline().TriggerName,pipeline().parameters.Trigger)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Exec_Ingest_Raw",
+				"description": "We need to call next pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "set_var_trigger",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "L2_Raw_Ingestion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Trigger_variable": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-09T17:47:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

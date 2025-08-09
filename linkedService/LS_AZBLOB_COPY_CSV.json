@@ -1,0 +1,17 @@
+{
+	"name": "LS_AZBLOB_COPY_CSV",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"storage_acc_log": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "@{linkedService().storage_acc_log}",
+			"accountKind": "BlobStorage"
+		}
+	}
+}

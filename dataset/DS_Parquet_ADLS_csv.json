@@ -1,0 +1,37 @@
+{
+	"name": "DS_Parquet_ADLS_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_CSV_ADLS",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"adls_storage_acc_loc": {
+					"value": "@dataset().adls_storage_acc_loc",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"adls_storage_acc_loc": {
+				"type": "string"
+			},
+			"directory": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().directory",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
