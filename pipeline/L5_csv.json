@@ -84,12 +84,6 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "sp_start_log_entry",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
-					{
 						"activity": "Set_mapping",
 						"dependencyConditions": [
 							"Succeeded"
@@ -127,12 +121,8 @@
 					},
 					"enableStaging": false,
 					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						"value": "@json(variables('mapping'))",
+						"type": "Expression"
 					}
 				},
 				"inputs": [
@@ -272,7 +262,14 @@
 			{
 				"name": "Set_mapping",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "sp_start_log_entry",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
