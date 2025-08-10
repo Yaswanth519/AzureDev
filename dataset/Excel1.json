@@ -34,6 +34,10 @@
 				"fileName": {
 					"value": "@dataset().file",
 					"type": "Expression"
+				},
+				"container": {
+					"value": "sourcedata",
+					"type": "Expression"
 				}
 			}
 		},
