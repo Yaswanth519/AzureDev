@@ -1,0 +1,16 @@
+{
+	"name": "LS_BLOB_COPY_EXCEL",
+	"properties": {
+		"parameters": {
+			"storage_acc_loc": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "@{linkedService().storage_acc_loc}",
+			"accountKind": "BlobStorage"
+		}
+	}
+}
