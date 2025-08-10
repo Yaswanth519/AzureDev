@@ -3,13 +3,38 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_AZBLOB_COPY_CSV",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"blob_storage_acc_loc": {
+					"value": "@dataset().blob_storage_acc_loc",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"blob_storage_acc_loc": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			},
+			"sheetname": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": {
+				"value": "@dataset().sheetname",
+				"type": "Expression"
+			},
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().file",
+					"type": "Expression"
+				}
 			}
 		},
 		"schema": []

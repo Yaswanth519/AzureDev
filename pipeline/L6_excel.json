@@ -107,14 +107,158 @@
 							"enablePartitionDiscovery": false
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "Excel1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"blob_storage_acc_loc": {
+								"value": "@activity('Lookup_excel').output.firstRow.SourceAccount",
+								"type": "Expression"
+							},
+							"file": {
+								"value": "@activity('Lookup_excel').output.firstRow.Sourcefile",
+								"type": "Expression"
+							},
+							"sheetname": {
+								"value": "@activity('Lookup_excel').output.firstRow.sheetname",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_Parquet_ADLS_csv",
+						"type": "DatasetReference",
+						"parameters": {
+							"adls_storage_acc_loc": {
+								"value": "@activity('Lookup_excel').output.firstRow.TargetAccount",
+								"type": "Expression"
+							},
+							"directory": {
+								"value": "@activity('Lookup_excel').output.firstRow.tgt_dir",
+								"type": "Expression"
+							}
+						}
 					}
 				]
+			},
+			{
+				"name": "sp_end_success_log_entry",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_excel",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[end_log_entry]",
+					"storedProcedureParameters": {
+						"error": {
+							"value": "",
+							"type": "String"
+						},
+						"jobid": {
+							"value": {
+								"value": "@activity('Lookup_excel').output.firstRow.jobid",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"pipeline_id": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Az_SQL_DB",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "sp_end_fail_log_entry",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_excel",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[end_log_entry]",
+					"storedProcedureParameters": {
+						"error": {
+							"value": {
+								"value": "@activity('Copy_excel').output.error.message",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"jobid": {
+							"value": {
+								"value": "@activity('Lookup_excel').output.firstRow.jobid",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"pipeline_id": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_Az_SQL_DB",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"parameters": {
